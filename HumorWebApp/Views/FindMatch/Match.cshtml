@@ -1,0 +1,48 @@
+﻿@model HumorWebApp.Models.Match
+
+@{
+    ViewData["Title"] = "Match";
+}
+
+<h1>Match</h1>
+<br />
+<div>
+
+
+
+@if (Model.User2 != null)
+{
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h4 style="color:crimson;">Congratulations! @Model.User1.FullName</h4>
+        }
+    <br />
+    <h4>We found your match: </h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Full Name:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User2.FullName)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Time of match:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeOfMatch)
+        </dd>
+    </dl>
+}
+else
+{
+    <h4>Sorry! @Model.User1.FullName</h4>
+    <br /><h4>There is no match for you at this time. Please try again later.</h4>
+}
+</div>
+<br />
+<div>   
+    <a  asp-controller="Home"   asp-action="Index">Back to home</a>
+</div>

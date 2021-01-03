@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<div class="container">
+    <div class="bg" style="height: 2000px; width:auto; margin: 10px; background-color:white; ">
+        
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <br />
+            <br />
+            <div class="col-md-12 text-center">
+
+
+                <br />
+                
+
+                <a style="color: darkblue; margin-top: 150px; font-style: normal; font-size: large; font-weight: 700;">Welcome to HumorDatingApp</a>
+                <br />
+                <a style="color: darkblue; margin-top: 200px; font-style: normal; font-size:large; font-weight: 700;">Ready to find someone with your sense of humor?</a>
+
+
+                
+                    <style>
+                        * {
+                            box-sizing: border-box;
+                        }
+
+                        .column {
+                            float: right ;
+                            width: 50%;
+                            padding: 25px;
+                        }
+
+                        /* Clearfix (clear floats) */
+                        .row::after {
+                            content: "";
+                            clear: both;
+                            display: table;
+                        }
+                    </style>
+                
+                                
+
+                    <div class="row">
+                        <div class="column">
+                            <img src="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/Create-an-Evaluation-Method.jpg" alt="Take Evaluation" style="width:100%">
+                            <a class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="Evaluation" asp-action="Index">Take Evaluation</a>
+                            </a>
+                        </div>
+                        <div class="column">
+                            <img src="https://www.usashooting.org/library/images/Membership/FIND_A_MATCH.png" alt="Find a match" style="width:100%">
+                            <a class="nav-item">
+                                <a class="nav-link " asp-area="" asp-controller="FindMatch" asp-action="Index" ><h3>Find Your Match</a>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+               
+
+                <br />
+                <br />
+                <br />
+                <br />
+                
+            </div>
+        }
+        else
+        {
+            <br />
+            <br />
+
+            <div class="text-center">
+                <br />
+                <h1 class="display-4">Welcome to Lowered Expectations!</h1>
+                <br />
+                <br />
+                <img src="~/dating.jpg" />
+            </div>
+
+        }
+        
+    </div>
+</div>
+

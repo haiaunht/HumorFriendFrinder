@@ -1,0 +1,59 @@
+﻿@model HumorWebApp.Models.UserAnswer
+@{ ViewData["Title"] = "Index"; }
+
+<h1>FindMatch</h1>
+<br />
+
+<dl class="row">
+
+    <style>
+        .btn-primary {
+            height: 30px;
+            width: 125px;
+            border-radius: 15px;
+            transition-duration: 0.5s;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: 2px solid #0000CD;
+        }
+
+            .btn-primary:hover {
+                background-color: #0000CD;
+                color: white;
+            }
+
+        img {
+            opacity: 0.2;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .humor_level {
+            position: relative;
+            top: 35px;
+            left: 35px;
+        }
+    </style>
+
+    <div class="container">
+        <img src="https://wallpaperaccess.com/full/1166881.jpg" style="height:500px;width:700px;" class="center" ;>
+        <h3 style="left:350px;top:35px;position:absolute">Your humor level: @ViewBag.Total</h3>
+        
+
+
+
+        <br />
+        <h3 style="left:350px;top:85px; position:absolute">Ready to find your match?</h3>
+        <a style="height:70px; left:400px; top:400px; position:absolute;" type="submit" class="btn btn-primary"
+                asp-action="Match">Find my match</a>
+        <a style="height:70px; left:600px; top: 400px; position: absolute;" type="reset" class="btn btn-primary"
+                asp-controller="Home" asp-action="Index">Cancel</a>
+    </div>
+

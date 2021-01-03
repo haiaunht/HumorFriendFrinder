@@ -1,0 +1,86 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<div class="container">
+    <div class="bg" style="height: 800px; width:auto; margin: 10px; background-color:white; ">
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div class="col-md-12 text-center">
+
+                <h1 style="color: black; margin-top: 100px; font-style: normal; font-weight: 700;">What's cookin' good lookin'?</h1>
+                <br />
+                <p style="color: darkblue; margin-top: 10px; font-style: normal; font-size:large; font-weight: 700;">Ready to find someone with your sense of humor?</p>
+
+
+
+                <style>
+                    * {
+                        box-sizing: border-box;
+                    }
+
+                    .column {
+                        float: right;
+                        width: 50%;
+                        padding: 25px;
+                    }
+
+                    /* Clearfix (clear floats) */
+                    .row::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    }
+                </style>
+
+
+
+                <div class="row">
+                    <div class="column">
+                        <img src="https://lo35k3w4xot3ofhwt28gospy-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/Create-an-Evaluation-Method.jpg" alt="Take Evaluation" style="width:100%">
+                        <a class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Evaluation" asp-action="Index">Take Evaluation</a>
+                        </a>
+                    </div>
+                    <div class="column">
+                        <img src="https://www.usashooting.org/library/images/Membership/FIND_A_MATCH.png" alt="Find a match" style="width:100%">
+                        <a class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="FindMatch" asp-action="Index">Find Your Match</a>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        }
+        else
+        {
+
+            <div class="text-center">
+                <br />
+                <h1 class="display-4">Welcome to Lowered Expectations</h1>
+                <h3 style="color:darkgrey;"><i>“Higher success rates, with lowered expectations”</i></h3>
+                <br />
+                <p style="font-style: normal; font-size: large;">
+                    Throughout the history of time, we've told jokes to make each other laugh, lighten the mood, poke fun at ourselves/others and much more.
+                    But sometimes a person's sense of humor doesn't match up with another's...
+                    That's why we've created 'Lowered Expectations', a not-so-advanced dating service to help you find 'the one' (or anyone), who you can also share a joke or two with!
+                    By filling out our evaluation, we can record data about what kinds of humor you enjoy, and then match you up with someone who shares that same
+                    kind of humor. Don't have a sense of humor? Don't worry, we can find someone as equally as boring as you! But don't take our word for it, login/signup now!
+
+                </p>
+                <br />
+
+            </div>
+            <div style="width: 1000px; height:200px; display: flex;  align-items: center; justify-content:center; margin-top: 50px; margin-left: auto; margin-right:auto; background-color: #e3ecff; border-radius:25px;">
+                <div style="text-align:center; width: 30px; background-color: white; border-radius:25px; font-size: 30px;">@UserManager.Users.ToList().Count</div>
+                <h3 style=" text-align:center;">&nbsp;people currently looking for any companionship at all...</h3>
+            </div>
+
+        }
+
+    </div>
+</div>
+
